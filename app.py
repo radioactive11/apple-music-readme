@@ -2,6 +2,7 @@ from base64 import b64encode
 from dotenv import load_dotenv
 from flask import Flask, Response, render_template
 import os
+from pprint import pprint
 import random
 import requests
 
@@ -44,6 +45,10 @@ class RenderCard:
         }
 
         response = requests.get(url, headers=headers)
+
+        pprint(
+            f"Response: {response.json()} | self.__token: {self.__token} | self.__cookie: {self.__cookie} | self.__media_user_token: {self.__media_user_token}"
+        )
 
         response = response.json()
 
