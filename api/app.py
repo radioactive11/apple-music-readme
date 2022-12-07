@@ -30,7 +30,7 @@ class RenderCard:
         res = requests.get(img_url, headers={}, cookies={})
         return b64encode(res.content).decode("ascii")
 
-    def fetch_recent_albums(self):
+    def __fetch_recent_albums(self):
         """
         Fetches recently played albums from Apple Music.
         """
@@ -70,8 +70,42 @@ class RenderCard:
 
             album_data.append(album_dict)
 
-        return random.choice(album_data)
+        self.__data = random.choice(album_data)
+
+    def generate_card(self):
+        self.__fetch_recent_albums()
+        image = self.__album_art_b64(self.__data["image_url"])
+        album_name = self.__data["name"]
+        artist_name = self.__data["artist_name"]
+
+        album_name = (album_name[:20] + "...") if len(album_name) > 22 else album_name
+        icon = self.__apple_music_icon_b64()
+
+        svg = render_template(
+            "card.html.j2",
+            album_art=image,
+            album_name=album_name,
+            artist_name=artist_name,
+            apple_icon=icon,
+        )
+
+        return svg
 
 
+app = Flask(__name__, template_folder="templates")
 rc = RenderCard()
-print(rc.fetch_recent_albums())
+
+
+@app.route("/", defaults={"path": ""}, methods=["GET"])
+@app.route("/<path:path>")
+def handle_all(path):
+    svg = rc.generate_card()
+
+    resp = Response(svg, mimetype="image/svg+xml")
+    resp.headers["Cache-Control"] = "s-maxage=1"
+
+    return resp
+
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5050)
