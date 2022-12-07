@@ -45,9 +45,6 @@ class RenderCard:
         }
 
         response = requests.get(url, headers=headers)
-
-        pprint(f"Response: {response.json()}")
-
         response = response.json()
 
         resources = response["resources"]
