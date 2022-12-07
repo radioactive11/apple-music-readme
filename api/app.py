@@ -73,6 +73,11 @@ class RenderCard:
         self.__data = random.choice(album_data)
 
     def generate_card(self):
+        """Generates the SVG card
+
+        Returns:
+            str: SVG card
+        """
         self.__fetch_recent_albums()
         image = self.__album_art_b64(self.__data["image_url"])
         album_name = self.__data["name"]
