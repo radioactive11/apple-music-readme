@@ -46,9 +46,7 @@ class RenderCard:
 
         response = requests.get(url, headers=headers)
 
-        pprint(
-            f"Response: {response.json()} | self.__token: {self.__token} | self.__cookie: {self.__cookie} | self.__media_user_token: {self.__media_user_token}"
-        )
+        pprint(f"Response: {response.json()}")
 
         response = response.json()
 
