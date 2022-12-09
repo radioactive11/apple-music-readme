@@ -1,6 +1,9 @@
+
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+![Vercel](https://vercelbadge.vercel.app/api/radioactive11/apple-music-readme?style=for-the-badge)
+[![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 <div id="top"></div>
-
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -10,7 +13,6 @@
 <p align="center">
     A card to show random album from your recents in Apple Music Library
 </p>
-<hr>
 <br>
 </div>
 
