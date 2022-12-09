@@ -77,7 +77,7 @@ You will need two things to set-up this project for your own GitHub readme:
 5. From the request headers, copy and keep the values of these keys for future use:
 
 * `Cookie`
-* `Authorization`
+* `Authorization` (Copy the code after the word `Bearer`, excluding the space)
 * `media-user-token`
 
 <img src="static/network.png">
