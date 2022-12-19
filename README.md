@@ -90,9 +90,11 @@ You will need two things to set-up this project for your own GitHub readme:
 
 9. In the configure project section, add the Environment Variable as follows with values from step 5
 
-* Cookie: `Cookie`
+* COOKIE: `Cookie`
 * AUTH_TOKEN: `Authorization`
 * MEDIA_USER_TOKEN: `MEDIA_USER_TOKEN`
+
+
 
 10. Click deploy 🚀
 
