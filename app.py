@@ -35,7 +35,7 @@ class RenderCard:
         """
         Fetches recently played albums from Apple Music.
         """
-        url = "https://amp-api.music.apple.com/v1/me/library/recently-added?art%5Burl%5D=f&fields%5Balbums%5D=artistName%2CartistUrl%2Cartwork%2CcontentRating%2CeditorialArtwork%2Cname%2CplayParams%2CreleaseDate%2Curl&fields%5Bartists%5D=name%2Curl&format%5Bresources%5D=map&includeOnly=catalog%2Cartists&include%5Blibrary-albums%5D=artists&include%5Blibrary-artists%5D=catalog&l=en-GB&limit=25&omit%5Bresource%5D=autos"
+        url = "https://amp-api.music.apple.com/v1/me/library/recently-added?art%5Burl%5D=f&fields%5Balbums%5D=artistName%2CartistUrl%2Cartwork%2CcontentRating%2CeditorialArtwork%2Cname%2CplayParams%2CreleaseDate%2Curl&fields%5Bartists%5D=name%2Curl&format%5Bresources%5D=map&includeOnly=catalog%2Cartists&include%5Blibrary-albums%5D=artists&include%5Blibrary-artists%5D=catalog&limit=25&omit%5Bresource%5D=autos"
         headers = {
             "Authorization": f"Bearer {self.__token}",
             "Cookie": self.__cookie,
