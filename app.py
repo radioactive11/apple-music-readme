@@ -39,7 +39,7 @@ class RenderCard:
         headers = {
             "Authorization": f"Bearer {self.__token}",
             "Cookie": self.__cookie,
-            "media-user-token": self.__media_user_token,
+            "Media-User-Token": self.__media_user_token,
             "origin": "https://music.apple.com",
             "referer": "https://music.apple.com/",
         }
