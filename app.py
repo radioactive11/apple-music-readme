@@ -62,7 +62,7 @@ class RenderCard:
             image_url = image_url.replace("{f}", "jpg")
             name = album.get("name", "Unknown")
             artist_name = album.get("artistName", "Unknown")
-            
+
             album_dict = {
                 "name": name,
                 "artist_name": artist_name,
