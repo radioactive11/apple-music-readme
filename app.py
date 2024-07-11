@@ -51,8 +51,9 @@ class RenderCard:
         albums = list(resources["albums"].values())
 
         album_data = []
-
+        
         for album in albums:
+            
             album = album["attributes"]
             image_url = album["artwork"]["url"]
             image_url = album.get("artwork", {}).get("url", "")
@@ -61,7 +62,7 @@ class RenderCard:
             image_url = image_url.replace("{f}", "jpg")
             name = album.get("name", "Unknown")
             artist_name = album.get("artistName", "Unknown")
-
+            
             album_dict = {
                 "name": name,
                 "artist_name": artist_name,
@@ -81,8 +82,9 @@ class RenderCard:
         self.__fetch_recent_albums()
         image = self.__album_art_b64(self.__data["image_url"])
         album_name = self.__data["name"]
-        artist_name = self.__data["artist_name"]
-
+        album_name = album_name.replace("&", "and")
+        artist_name = self.__data.get("artist_name") if self.__data.get("artist_name") else ""
+        artist_name = artist_name.replace("&", "and")
         album_name = (album_name[:20] + "...") if len(album_name) > 22 else album_name
         icon = self.__apple_music_icon_b64()
 
