@@ -1,7 +1,6 @@
 import os
 import random
 from base64 import b64encode
-from pprint import pprint
 
 import requests
 from dotenv import load_dotenv
@@ -54,9 +53,12 @@ class RenderCard:
         album_data = []
 
         for album in albums:
-
             album = album["attributes"]
-            image_url = album["artwork"]["url"]
+            image_url = album.get("artwork", {}).get("url", "")
+            
+            if not image_url:
+                continue
+
             image_url = album.get("artwork", {}).get("url", "")
             image_url = image_url.replace("{w}", "632")
             image_url = image_url.replace("{h}", "632")
